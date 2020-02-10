@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 
 const Pvp = () => {
   const LineBox = ["탑/", "미드/", "봇/"];
@@ -17,7 +17,7 @@ const Pvp = () => {
     }
   ]);
 
-  const changeLine = useCallback(() => {
+  const changeLine = () => {
     const lineNumber = makeRandom(0, 2);
 
     setDatas(prevdatas =>
@@ -27,7 +27,7 @@ const Pvp = () => {
           : data
       )
     );
-  }, [LineBox, datas]);
+  };
 
   const changeChamp = () => {
     const champNumber = makeRandom(0, 2);
@@ -143,5 +143,3 @@ const Pvp = () => {
     </>
   );
 };
-
-export default Pvp;
