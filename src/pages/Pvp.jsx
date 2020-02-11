@@ -1,47 +1,29 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-const Solo = () => {
-  const positionBox = ["탑/", "정글/", "미드/", "봇/", "서포터/ ", "상관없음/"];
-  const champBox = ["아리/", "제드/", "탈론/"];
-  const runeBox = ["치속/", "정복자/", "집중공격/"];
-  const itemBox = ["공속/", "방관/", "치명타/"];
-  const spellBox = ["점멸", "점화", "회복"];
+const Pvp = () => {
+  const LineBox = ['탑/', '미드/', '봇/'];
+  const champBox = ['아리/', '제드/', '탈론/'];
+  const runeBox = ['치속/', '정복자/', '집중공격/'];
+  const itemBox = ['공속/', '방관/', '치명타/'];
+  const spellBox = ['점멸', '점화', '회복'];
 
   const [datas, setDatas] = useState([
     {
-      champ: "",
-      rune: "",
-      item: "",
-      spell: "",
-      firstposition: "",
-      secondposition: ""
+      line: '',
+      champ: '',
+      rune: '',
+      item: '',
+      spell: ''
     }
   ]);
 
-  const changePosition = () => {
-    const firstLineNumber = makeRandom(0, 5);
-    let secondLineNumber;
-    if (firstLineNumber !== 5) {
-      secondLineNumber = makeRandom(0, 4);
-      do {
-        secondLineNumber = makeRandom(0, 4);
-      } while (secondLineNumber === firstLineNumber);
-    }
-
-    // let secondLineNumber = makeRandom(0, 5);
-
-    // do {
-    //   secondLineNumber = makeRandom(0, 5);
-    // } while (secondLineNumber === firstLineNumber);
+  const changeLine = () => {
+    const lineNumber = makeRandom(0, 2);
 
     setDatas(prevdatas =>
       datas.map(data =>
-        prevdatas.firstposition === datas.firstposition
-          ? {
-              ...data,
-              firstposition: positionBox[firstLineNumber],
-              secondposition: positionBox[secondLineNumber]
-            }
+        prevdatas.line === datas.line
+          ? { ...data, line: LineBox[lineNumber] }
           : data
       )
     );
@@ -96,15 +78,7 @@ const Solo = () => {
   };
 
   const all = () => {
-    const firstLineNumber = makeRandom(0, 5);
-    let secondLineNumber;
-    if (firstLineNumber !== 5) {
-      secondLineNumber = makeRandom(0, 4);
-      do {
-        secondLineNumber = makeRandom(0, 4);
-      } while (secondLineNumber === firstLineNumber);
-    }
-
+    const lineNumber = makeRandom(0, 2);
     const champNumber = makeRandom(0, 2);
     const runeNumber = makeRandom(0, 2);
     const itemNumber = makeRandom(0, 2);
@@ -114,8 +88,7 @@ const Solo = () => {
         prevdatas === datas
           ? {
               ...data,
-              firstposition: positionBox[firstLineNumber],
-              secondposition: positionBox[secondLineNumber],
+              line: LineBox[lineNumber],
               champ: champBox[champNumber],
               rune: runeBox[runeNumber],
               item: itemBox[itemNumber],
@@ -134,24 +107,34 @@ const Solo = () => {
   return (
     <>
       <div>
-        플레이어<button onClick={all}>일괄랜덤</button>
+        플레이어 1<button onClick={all}>일괄랜덤</button>
       </div>
       <div>
-        <button onClick={changePosition}>포지션</button>
+        <button onClick={changeLine}>라인</button>
         <button onClick={changeChamp}>챔피언</button>
         <button onClick={changeRune}>룬</button>
         <button onClick={changeItem}>아이템</button>
         <button onClick={changeSpell}>스펠</button>
       </div>
-      <div>주 포지션: {datas.map(data => data.firstposition)}</div>
-      <div>부 포지션: {datas.map(data => data.secondposition)}</div>
-      <div>챔피언:{datas.map(data => data.champ)}</div>
-      <div>룬:{datas.map(data => data.rune)}</div>
-      <div>아이템:{datas.map(data => data.item)}</div>
-      <div>스펠:{datas.map(data => data.spell)}</div>
       <div>
-        {datas.map(data => data.firstposition)}
-        {datas.map(data => data.secondposition)}
+        {datas.map(data => data.line)}
+        {datas.map(data => data.champ)}
+        {datas.map(data => data.rune)}
+        {datas.map(data => data.item)}
+        {datas.map(data => data.spell)}
+      </div>
+      <div>
+        플레이어 2<button onClick={all}>일괄랜덤</button>
+      </div>
+      <div>
+        <button onClick={changeLine}>라인</button>
+        <button onClick={changeChamp}>챔피언</button>
+        <button onClick={changeRune}>룬</button>
+        <button onClick={changeItem}>아이템</button>
+        <button onClick={changeSpell}>스펠</button>
+      </div>
+      <div>
+        {datas.map(data => data.line)}
         {datas.map(data => data.champ)}
         {datas.map(data => data.rune)}
         {datas.map(data => data.item)}
@@ -161,4 +144,4 @@ const Solo = () => {
   );
 };
 
-export default Solo;
+export default Pvp;
