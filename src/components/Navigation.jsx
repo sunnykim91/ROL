@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
-import { Menu, Icon } from 'antd';
+import React from 'react';
+import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
 
 const Navigation = () => {
   return (
     <Menu mode='horizontal'>
-      <Menu.Item key='oneToOne'>
+      <Link style={{ marginLeft: '40px' }} to='/'>
+        Random Of Legends
+      </Link>
+      <Menu.Item style={{ marginLeft: '40px' }} key='oneToOne'>
         <Link to='/pvp'>1:1</Link>
       </Menu.Item>
       <Menu.Item key='soloRank'>

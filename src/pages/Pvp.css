@@ -1,0 +1,49 @@
+.allRandom {
+  margin-left: 20px;
+}
+
+ul {
+  list-style: none;
+}
+.playerOneHeaderName,
+.playerTwoHeaderName {
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: 3px;
+}
+
+.mainContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.playerOne {
+  width: 45%;
+  background: lightcoral;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.playerTwo {
+  width: 45%;
+  background: cornflowerblue;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.playerOneHeader,
+.playerTwoHeader {
+  margin-bottom: 30px;
+}
+
+.playerOneRandomList,
+.playerTwoRandomList {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.vsImg {
+}

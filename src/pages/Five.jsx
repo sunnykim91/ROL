@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 const Five = () => {
-  return <div>Five 입니당</div>;
+  return <div style={{ padding: '50px' }}>Five 입니당</div>;
 };
 
 export default Five;

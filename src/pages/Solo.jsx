@@ -132,7 +132,7 @@ const Solo = () => {
   }
 
   return (
-    <>
+    <div style={{ padding: '50px' }}>
       <div>
         플레이어<button onClick={all}>일괄랜덤</button>
       </div>
@@ -157,7 +157,7 @@ const Solo = () => {
         {datas.map(data => data.item)}
         {datas.map(data => data.spell)}
       </div>
-    </>
+    </div>
   );
 };
 
