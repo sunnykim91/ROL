@@ -1,14 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { Button } from 'antd';
 import './Pvp.css';
-import vsImg from '../VS.png';
+import vsImg from '../images/VS.png';
+import Bottom from '../images/Bottom.png';
+import Top from '../images/Top.png';
+import Mid from '../images/Mid.png';
+import Aatrox from '../images/champions/Aatrox.jpg';
+import Akali from '../images/champions/Akali.jpg';
+import Ahri from '../images/champions/Ahri.jpg';
+import Alistar from '../images/champions/Alistar.jpg';
+import Amumu from '../images/champions/Amumu.jpg';
+import Anivia from '../images/champions/Anivia.jpg';
+import Annie from '../images/champions/Annie.jpg';
+import Aphelios from '../images/champions/Aphelios.jpg';
+import Ashe from '../images/champions/Ashe.jpg';
+import AurelionSol from '../images/champions/AurelionSol.jpg';
+import Azir from '../images/champions/Azir.jpg';
+import Bard from '../images/champions/Bard.jpg';
+import Blitzcrank from '../images/champions/Blitzcrank.jpg';
+import Brand from '../images/champions/Brand.jpg';
+import question from '../images/champions/question.jpg';
+import championDetail from '../datas/championDetail.json';
+
+const getChampBox = () => {
+  return championDetail.map(champ => champ.championName);
+};
 
 const Pvp = () => {
-  const LineBox = ['탑', '미드', '봇'];
-  const champBox = ['아리/', '제드/', '탈론/'];
+  const LineBox = ['탑', '미드', '바텀'];
+  const [champBox, setChampBox] = useState(getChampBox());
   const runeBox = ['치속/', '정복자/', '집중공격/'];
   const itemBox = ['공속/', '방관/', '치명타/'];
   const spellBox = ['점멸', '점화', '회복'];
+  const [onChampionButton, setOnChampionButton] = useState(false);
+  let [championInterval, setChampionInterval] = useState(null);
+  const [onLineButton, setOnLineButton] = useState(false);
+  let [lineInterval, setLineInterval] = useState(null);
 
   const [datas, setDatas] = useState([
     {
@@ -21,27 +48,44 @@ const Pvp = () => {
   ]);
 
   const changeLine = () => {
-    const lineNumber = makeRandom(0, 2);
+    if (!onLineButton) {
+      // 라인 랜덤선택 버튼 눌렀을때
+      setOnLineButton(true);
+      lineImageLoater();
+    } else {
+      // STOP버튼을 눌렀을때
+      setOnLineButton(false);
+      clearInterval(lineInterval);
+      const lineNumber = makeRandom(0, 2);
 
-    setDatas(prevdatas =>
-      datas.map(data =>
-        prevdatas.line === datas.line
-          ? { ...data, line: LineBox[lineNumber] }
-          : data
-      )
-    );
+      setDatas(prevdatas =>
+        datas.map(data =>
+          prevdatas.line === datas.line
+            ? { ...data, line: LineBox[lineNumber] }
+            : data
+        )
+      );
+    }
   };
 
   const changeChamp = () => {
-    const champNumber = makeRandom(0, 2);
-
-    setDatas(prevdatas =>
-      datas.map(data =>
-        prevdatas.champ === datas.champ
-          ? { ...data, champ: champBox[champNumber] }
-          : data
-      )
-    );
+    if (!onChampionButton) {
+      // 챔피언 랜덤선택 버튼 눌렀을때
+      setOnChampionButton(true);
+      imageRotater();
+    } else {
+      // STOP버튼을 눌렀을때
+      setOnChampionButton(false);
+      clearInterval(championInterval);
+      const champNumber = makeRandom(0, 13);
+      setDatas(prevdatas =>
+        datas.map(data =>
+          prevdatas.champ === datas.champ
+            ? { ...data, champ: champBox[champNumber] }
+            : data
+        )
+      );
+    }
   };
 
   const changeRune = () => {
@@ -107,6 +151,155 @@ const Pvp = () => {
     return RandVal;
   }
 
+  const championLoading = useCallback(() => {
+    console.log(datas.map(data => data.champ));
+    switch (datas.map(data => data.champ)[0]) {
+      case '아트록스':
+        return (
+          <img src={Aatrox} width='100px' height='100px' alt='AatroxImg'></img>
+        );
+      case '아칼리':
+        return (
+          <img src={Akali} width='100px' height='100px' alt='AkaliImg'></img>
+        );
+      case '아리':
+        return (
+          <img src={Ahri} width='100px' height='100px' alt='AhriImg'></img>
+        );
+      case '알리스타':
+        return (
+          <img
+            src={Alistar}
+            width='100px'
+            height='100px'
+            alt='AlistarImg'
+          ></img>
+        );
+      case '아무무':
+        return (
+          <img src={Amumu} width='100px' height='100px' alt='AmumuImg'></img>
+        );
+      case '애니비아':
+        return (
+          <img src={Anivia} width='100px' height='100px' alt='AniviaImg'></img>
+        );
+      case '애니':
+        return (
+          <img src={Annie} width='100px' height='100px' alt='AnnieImg'></img>
+        );
+      case '아펠리오스':
+        return (
+          <img
+            src={Aphelios}
+            width='100px'
+            height='100px'
+            alt='ApheliosImg'
+          ></img>
+        );
+      case '애쉬':
+        return (
+          <img src={Ashe} width='100px' height='100px' alt='AsheImg'></img>
+        );
+      case '아우렐리온 솔':
+        return (
+          <img
+            src={AurelionSol}
+            width='100px'
+            height='100px'
+            alt='AurelionSolImg'
+          ></img>
+        );
+      case '아지르':
+        return (
+          <img src={Azir} width='100px' height='100px' alt='AzirImg'></img>
+        );
+      case '바드':
+        return (
+          <img src={Bard} width='100px' height='100px' alt='BardImg'></img>
+        );
+      case '블리츠크랭크':
+        return (
+          <img
+            src={Blitzcrank}
+            width='100px'
+            height='100px'
+            alt='BlitzcrankImg'
+          ></img>
+        );
+      case '브랜드':
+        return (
+          <img src={Brand} width='100px' height='100px' alt='BrandImg'></img>
+        );
+      default:
+        return (
+          <img
+            src={question}
+            width='100px'
+            height='100px'
+            alt='questionImg'
+          ></img>
+        );
+    }
+  }, [datas]);
+
+  const imageRotater = () => {
+    console.log('이미지 로테 가동중');
+    console.log(champBox);
+    let count = 0;
+
+    setChampionInterval(
+      setInterval(() => {
+        if (count > 13) {
+          count = 0;
+        } else {
+          setDatas(prevdatas =>
+            datas.map(data =>
+              prevdatas.champ === datas.champ
+                ? { ...data, champ: champBox[count] }
+                : data
+            )
+          );
+          count++;
+        }
+      }, 100)
+    );
+  };
+
+  const lineLoading = () => {
+    switch (datas.map(data => data.line)[0]) {
+      case '탑':
+        return <img src={Top} width='100px' height='100px' alt='TopImg'></img>;
+      case '미드':
+        return <img src={Mid} width='100px' height='100px' alt='MidImg'></img>;
+      case '바텀':
+        return (
+          <img src={Bottom} width='100px' height='100px' alt='BottomImg'></img>
+        );
+      default:
+        return <span>미정</span>;
+    }
+  };
+
+  const lineImageLoater = useCallback(() => {
+    let count = 0;
+    setLineInterval(
+      setInterval(() => {
+        if (count > 2) {
+          count = 0;
+        } else {
+          setDatas(prevdatas =>
+            datas.map(data =>
+              prevdatas.line === datas.line
+                ? { ...data, line: LineBox[count] }
+                : data
+            )
+          );
+          count++;
+        }
+      }, 100)
+    );
+  }, [LineBox, datas]);
+
   return (
     <div
       style={{
@@ -145,9 +338,9 @@ const Pvp = () => {
                 padding: '0px'
               }}
             >
-              라인
+              {onLineButton ? 'STOP' : '라인'}
             </Button>{' '}
-            {datas.map(data => data.line)}
+            {lineLoading()}
           </li>
           <li>
             <Button
@@ -160,9 +353,9 @@ const Pvp = () => {
                 padding: '0px'
               }}
             >
-              챔피언
+              {onChampionButton ? 'STOP' : '챔피언'}
             </Button>{' '}
-            {datas.map(data => data.champ)}
+            {championLoading()}
           </li>
           <li>
             <Button
@@ -211,8 +404,9 @@ const Pvp = () => {
           </li>
         </ul>
       </div>
+
       <div className='vsImg'>
-        <img src={vsImg} width='100px' height='100px'></img>
+        <img src={vsImg} width='100px' height='100px' alt='vsImg'></img>
       </div>
       <div className='playerTwo'>
         <div className='playerTwoHeader'>

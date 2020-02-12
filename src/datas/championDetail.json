@@ -1,0 +1,122 @@
+[
+  {
+    "championId": "1",
+    "championName": "아트록스",
+    "championImg": "Aatrox.jpg",
+    "line": ["TOP", "MID"]
+  },
+  {
+    "championId": "2",
+    "championName": "아리",
+    "championImg": "Ahri.jpg",
+    "line": ["MID"]
+  },
+  {
+    "championId": "3",
+    "championName": "아칼리",
+    "championImg": "Akali.jpg",
+    "line": ["TOP", "MID"]
+  },
+  {
+    "championId": "4",
+    "championName": "알리스타",
+    "championImg": "Alistar.jpg",
+    "line": ["SUP"]
+  },
+  {
+    "championId": "5",
+    "championName": "아무무",
+    "championImg": "Amumu.jpg",
+    "line": ["JUN"]
+  },
+  {
+    "championId": "6",
+    "championName": "애니비아",
+    "championImg": "Anivia.jpg",
+    "line": ["MID"]
+  },
+  {
+    "championId": "7",
+    "championName": "애니",
+    "championImg": "Annie.jpg",
+    "line": ["MID", "SUP"]
+  },
+  {
+    "championId": "8",
+    "championName": "아펠리오스",
+    "championImg": "Aphelios.jpg",
+    "line": ["AD"]
+  },
+  {
+    "championId": "9",
+    "championName": "애쉬",
+    "championImg": "Ashe.jpg",
+    "line": ["AD"]
+  },
+  {
+    "championId": "10",
+    "championName": "아우렐리온 솔",
+    "championImg": "AurelionSol.jpg",
+    "line": ["MID"]
+  },
+  {
+    "championId": "11",
+    "championName": "아지르",
+    "championImg": "Azir.jpg",
+    "line": ["MID"]
+  },
+  {
+    "championId": "12",
+    "championName": "바드",
+    "championImg": "Bard.jpg",
+    "line": ["SUP"]
+  },
+  {
+    "championId": "13",
+    "championName": "블리츠크랭크",
+    "championImg": "Blitzcrank.jpg",
+    "line": ["SUP"]
+  },
+  {
+    "championId": "14",
+    "championName": "브랜드",
+    "championImg": "Brand.jpg",
+    "line": ["MID", "SUP"]
+  },
+  {
+    "championId": "15",
+    "championName": "브라움",
+    "championImg": "Braum.jpg",
+    "line": ["SUP"]
+  },
+  {
+    "championId": "16",
+    "championName": "케이틀린",
+    "championImg": "Caitlyn.jpg",
+    "line": ["AD"]
+  },
+  {
+    "championId": "17",
+    "championName": "카밀",
+    "championImg": "Camille.jpg",
+    "line": ["TOP", "MID"]
+  },
+  {
+    "championId": "18",
+    "championName": "카시오페아",
+    "championImg": "Cassiopeia.jpg",
+    "line": ["MID", "AD"]
+  },
+  {
+    "championId": "19",
+    "championName": "초가스",
+    "championImg": "Chogath.jpg",
+    "line": ["TOP", "MID"]
+  },
+  {
+    "championId": "20",
+    "championName": "코르키",
+    "championImg": "Corki.jpg",
+    "line": ["MID", "AD"]
+  }
+]

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Navigation = () => {
   return (
     <Menu mode='horizontal'>
-      <Link style={{ marginLeft: '40px' }} to='/'>
+      <Link style={{ marginLeft: '40px' }} to='/' key='logo'>
         Random Of Legends
       </Link>
       <Menu.Item style={{ marginLeft: '40px' }} key='oneToOne'>

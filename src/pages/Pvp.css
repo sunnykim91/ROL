@@ -1,3 +1,16 @@
+.playerOne .ant-btn:hover,
+.playerOne .ant-btn:focus,
+.playerOne .ant-btn:active {
+  border-color: lightcoral !important;
+  color: lightcoral !important;
+}
+.playerTwo .ant-btn:hover,
+.playerTwo .ant-btn:focus,
+.playerTwo .ant-btn:active {
+  border-color: cornflowerblue !important;
+  color: cornflowerblue !important;
+}
+
 .allRandom {
   margin-left: 20px;
 }
