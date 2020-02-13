@@ -182,10 +182,10 @@ const Duo = () => {
     if (max - min + 1 < count) return;
 
     // 배열 생성
-    var rst = [];
+    let rst = [];
 
     while (1) {
-      var index = getRandom(min, max);
+      let index = getRandom(min, max);
 
       // 중복 여부를 체크
       if (rst.indexOf(index) > -1) {
